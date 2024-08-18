@@ -138,13 +138,13 @@ public class XLSXFile {
     return try parseEntry("xl/styles.xml", Styles.self)
   }
 
-  public func parseSharedStrings() throws -> SharedStrings? {
+  public func parseSharedStrings() throws -> SharedStrings {
     decoder.keyDecodingStrategy = .useDefaultKeys
 
     do {
       return try parseEntry("xl/sharedStrings.xml", SharedStrings.self)
     } catch CoreXLSXError.archiveEntryNotFound {
-      return nil
+      return SharedStrings()
     }
   }
 

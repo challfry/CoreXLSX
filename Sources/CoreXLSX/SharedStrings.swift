@@ -53,6 +53,16 @@ public struct SharedStrings: Codable, Equatable {
     case items = "si"
     case uniqueCount
   }
+  
+  init(uniqueCount: UInt?, items: [Item]) {
+	self.uniqueCount = uniqueCount
+	self.items = items
+  }
+  
+  init() {
+	self.uniqueCount = 0
+	self.items = []
+  }
 }
 
 public struct RichText: Codable, Equatable {
